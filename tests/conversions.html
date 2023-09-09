@@ -36,6 +36,8 @@ let convertToRec2020 = convertTo("rec2020");
 let convertToOK = convertTo("oklab");
 let convertToOKLCh = convertTo("oklch");
 let convertTosrgbLin = convertTo("srgb-linear");
+let convertToLuv = convertTo("luv");
+let convertToLCHuv = convertTo("lchuv");
 
 </script>
 
@@ -913,6 +915,123 @@ let convertTosrgbLin = convertTo("srgb-linear");
 		</tr>
 	</table>
 </section>
+
+<section>
+	<h1>Luv</h1>
+	<p>Conversions tested against results from <a href="https://github.com/hsluv/hsluv/blob/c6227fb52a095cd0f93ab5e985600bc1ceed4f1c/snapshots/snapshot-rev4.json">published test data</a></p>
+	<table class="reftest" data-test="numbers" data-columns="3" data-colors="1">
+		<tr title="sRGB #33ff77 to Luv">
+			<td>#33ff77</td>
+			<td>
+				<script>
+					convertToLuv();
+				</script>
+			</td>
+			<td>88.7105909437740081, -76.7139872603015505, 79.419353202025647</td>
+		</tr>
+		<tr title="XYZ-D65 (black) to Luv">
+			<td>color(xyz-d65 0 0 0)</td>
+			<td>
+				<script>
+					convertToLuv();
+				</script>
+			</td>
+			<td>0, 0, 0</td>
+		</tr>
+		<tr title="XYZ-D65 (D65 white) to Luv">
+			<td>color(xyz-d65 0.95045592705 1 1.08905775076)</td>
+			<td>
+				<script>
+					convertToLuv();
+				</script>
+			</td>
+			<td>100, 0, 0</td>
+		</tr>
+		<tr title="XYZ-D65 (slategray) to Luv">
+			<td>color(xyz-d65 0.186455 0.19935 0.284575)</td>
+			<td>
+				<script>
+					convertToLuv();
+				</script>
+			</td>
+			<td>51.763618682080377, -8.6016481223411709, -15.591207397376769</td>
+		</tr>
+		<tr title="Luv (#33ff77) to XYZ-D65">
+			<td>color(--luv 88.7105909437740081, -76.7139872603015505, 79.419353202025647)</td>
+			<td>
+				<script>
+					convertToXYZ();
+				</script>
+			</td>
+			<td>0.404530632977412874, 0.735525720400136751, 0.295184135594572128</td>
+		</tr>
+		<tr title="Luv (black) to XYZ-D65">
+			<td>color(--luv 0 0 0)</td>
+			<td>
+				<script>
+					convertToXYZ();
+				</script>
+			</td>
+			<td>0, 0, 0</td>
+		</tr>
+		<tr title="Luv (white) to XYZ-D65">
+			<td>color(--luv 100 0 0)</td>
+			<td>
+				<script>
+					convertToXYZ();
+				</script>
+			</td>
+			<td>0.95045592705, 1, 1.08905775076</td>
+		</tr>
+		<tr title="Luv (slategray) to XYZ-D65">
+			<td>color(--luv 51.763618682080377 -8.6016481223411709 -15.591207397376769)</td>
+			<td>
+				<script>
+					convertToXYZ();
+				</script>
+			</td>
+			<td>0.186455, 0.19935, 0.284575</td>
+		</tr>
+	</table>
+</section>
+
+<section>
+	<h1>LCHuv</h1>
+	<p>Conversions tested against results from <a href="https://github.com/hsluv/hsluv/blob/c6227fb52a095cd0f93ab5e985600bc1ceed4f1c/snapshots/snapshot-rev4.json">published test data</a></p>
+	<table class="reftest" data-test="numbers" data-columns="3" data-colors="1">
+		<tr title="sRGB white (D65) to LCHuv">
+			<td>white</td>
+			<td>
+				<script>
+					convertToLCHuv();
+				</script>
+			</td>
+			<td>99.99999999999973, 5.29610712429325706e-12, NaN</td>
+		</tr>
+
+		<tr title="sRGB black to LCHuv">
+			<td>black</td>
+			<td>
+				<script>
+					convertToLCHuv();
+				</script>
+			</td>
+			<td>0, 0, NaN</td>
+		</tr>
+
+		<tr title="sRGB #6688ff to LCHuv">
+			<td>#6688ff</td>
+			<td>
+				<script>
+					convertToLCHuv();
+				</script>
+			</td>
+			<td>59.57310174908622, 104.481663139573541, 259.967822360236937</td>
+		</tr>
+
+	</table>
+</section>
+
 
 <section>
 	<h1>Get coordinates</h1>

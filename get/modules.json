@@ -153,6 +153,19 @@
 			"id": "acescg",
 			"url": "https://en.wikipedia.org/wiki/Academy_Color_Encoding_System",
 			"description": "Scene-referred Academy Color Encoding System, using the wide gamut but physically realizable AP1 primaries and linear-light encoding. Used for physical rendering."
+		},
+		{
+			"name": "Luv",
+			"id": "luv",
+			"url": "https://en.wikipedia.org/wiki/CIELUV",
+			"description": "The CIE Luv color space consists of three components: L* represents lightness, ranging from 0 (black) to 100 (white); u* and v* represent the chromaticity coordinates, allowing for the description of the color's hue and saturation."
+		},
+		{
+			"name": "LCHuv",
+			"id": "lchuv",
+			"dependencies": ["luv"],
+			"url": "https://en.wikipedia.org/wiki/CIELUV",
+			"description": "The polar (Hue, Chroma) form of CIE Luv."
 		}
 	],
 	"optional": [

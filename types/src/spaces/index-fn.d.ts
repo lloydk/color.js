@@ -21,5 +21,7 @@ export { default as REC_2020_Linear } from "./rec2020-linear";
 export { default as REC_2020 } from "./rec2020";
 export { default as OKLab } from "./oklab";
 export { default as OKLCH } from "./oklch";
+export { default as Luv } from "./luv";
+export { default as LCHuv } from "./lchuv";
 
 export * from "./index-fn-hdr";
